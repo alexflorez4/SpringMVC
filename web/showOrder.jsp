@@ -6,7 +6,7 @@
 
 <body>
 
-<h1>Welcome back, ${order.customer.name} - ${order.booksOrdered}</h1>
+<h1>Welcome back, ${order.customer.name}</h1>
 
 <ul>
     <c:forEach items="${order.booksOrdered}" var="book">

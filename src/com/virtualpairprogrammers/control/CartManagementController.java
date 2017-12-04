@@ -16,13 +16,14 @@ import com.virtualpairprogrammers.domain.ShoppingCart;
 import com.virtualpairprogrammers.services.BookService;
 
 @Controller
-@Scope("session")
+@Scope("request")
 public class CartManagementController
 {
 	@Autowired
 	private BookService bookService;
 
-	ShoppingCart cart = new ShoppingCart();
+	@Autowired
+	private ShoppingCart cart;
 
 	@RequestMapping("/addToCart")
 	public ModelAndView addToCart(@RequestParam("id") int id)
