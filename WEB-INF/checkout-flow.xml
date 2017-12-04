@@ -16,7 +16,7 @@
         </view-state>
 
         <action-state id="lookUpCustomer">
-                <evaluate expression="accountsService.findCustomer(requestParameters.accountId)" result="requestScope.customer"/>
+                <evaluate expression="accountsService.findCustomer(requestParameters.accountId)" result="flowScope.customer"/>
                 <transition on="success" to="showOrder">
                         <evaluate expression="order.setCustomer(customer)"/>
                 </transition>

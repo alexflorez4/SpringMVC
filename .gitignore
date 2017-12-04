@@ -1,3 +1,5 @@
 dist
 bin
-MVC Project.iml
+SpringMVC.iml
+bin
+dist

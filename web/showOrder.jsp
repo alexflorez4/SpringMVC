@@ -6,12 +6,12 @@
 
 <body>
 
-<h1>Welcome back, ${order.customer.name}</h1>
+<h1>Welcome back, ${order.customer.name} - ${order.booksOrdered}</h1>
 
 <ul>
     <c:forEach items="${order.booksOrdered}" var="book">
         <li>
-            <p>Book: ${book.title}</p>
+            ${book.title}
         </li>
     </c:forEach>
 </ul>

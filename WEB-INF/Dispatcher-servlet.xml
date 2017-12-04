@@ -12,14 +12,14 @@
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc.xsd
         http://www.springframework.org/schema/webflow-config
-        http://www.springframework.org/schema/webflow-config/spring-webflow-config-2.4.xsd">
+        http://www.springframework.org/schema/webflow-config/spring-webflow-config-2.0.xsd">
         
     <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
         <property name="basename" value="messages"/>
     </bean>
 
     <!-- View Resolver -->
-    <bean id="bundelViewResolver" class="org.springframework.web.servlet.view.ResourceBundleViewResolver">
+    <bean id="bundleViewResolver" class="org.springframework.web.servlet.view.ResourceBundleViewResolver">
         <property name="basename" value="views"/>
         <property name="order" value="1"/>
     </bean>

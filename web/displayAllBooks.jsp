@@ -28,7 +28,7 @@
 				
 					<form method='post' action='<c:url value="addToCart.do"/>'>
 						<input type='hidden' name='id' value='${nextBook.id}'/>
-						<input type='image' src='cart-button.png'/>
+						<input type='image' src='<c:url value="/cart-button.png"/>'/>
 				    </form>
 				</span>
 				</p>
