@@ -23,7 +23,17 @@
                 <transition on-exception="com.virtualpairprogrammers.services.CustomerNotFoundException" to="enterCustomerId"/>
         </action-state>
 
-        <view-state id="showOrder" view="/showOrder.jsp"/>
+        <view-state id="showOrder" view="/showOrder.jsp">
+                <transition on="removeBook" to="removeBook"/>
+                <transition on="nextStep" to="confirmOrder"/>
+        </view-state>
+
+        <view-state id="confirmOrder" view="/confirmOrder.jsp"/>
+
+        <action-state id="removeBook">
+                <evaluate expression="order.removeItem(requestParameters.id)"/>
+                <transition to="showOrder"/>
+        </action-state>
 
         <on-end>
                 <evaluate expression="shoppingCart.clear()"/>
