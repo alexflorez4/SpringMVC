@@ -13,6 +13,11 @@
 
         <view-state id="enterCustomerId" view="/enterCustomerId.jsp">
                 <transition on="findCustomer" to="lookUpCustomer"/>
+                <transition on="newCustomer" to="newCustomer"/>
+        </view-state>
+
+        <view-state id="newCustomer" view="/newCustomer.jsp" model="order">
+                <transition on="addCustomer" to="showOrder"/>
         </view-state>
 
         <action-state id="lookUpCustomer">
@@ -20,7 +25,10 @@
                 <transition on="success" to="showOrder">
                         <evaluate expression="order.setCustomer(customer)"/>
                 </transition>
-                <transition on-exception="com.virtualpairprogrammers.services.CustomerNotFoundException" to="enterCustomerId"/>
+                <transition on-exception="com.virtualpairprogrammers.services.CustomerNotFoundException" to="enterCustomerId">
+                        <set name="flashScope.errorMessage" value="resourceBundle.customerNotFoundMessage"/>
+                        
+                </transition>
         </action-state>
 
         <view-state id="showOrder" view="/showOrder.jsp">
@@ -28,7 +36,11 @@
                 <transition on="nextStep" to="confirmOrder"/>
         </view-state>
 
-        <view-state id="confirmOrder" view="/confirmOrder.jsp"/>
+        <view-state id="confirmOrder" view="/confirmOrder.jsp">
+                <transition on="confirm" to="finished"/>
+        </view-state>
+
+        <end-state id="finished" view="/orderRaised.jsp"/>
 
         <action-state id="removeBook">
                 <evaluate expression="order.removeItem(requestParameters.id)"/>

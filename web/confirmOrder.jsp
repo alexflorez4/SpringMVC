@@ -16,5 +16,9 @@
     </c:forEach>
 </ul>
 
+<form method="post">
+    <input type="submit" name="_eventId_confirm" value="Click to confirm the order"/>
+</form>
+
 </body>
 </html>
